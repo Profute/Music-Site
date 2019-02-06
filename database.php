@@ -12,83 +12,69 @@
 	require "Login.php";
 	$sql = "CREATE Table  If NOT EXISTS Artist(
 		ArtistId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-		fornavn VARCHAR(30) NOT NULL,
-		efternavn VARCHAR(30) NOT NULL,
+		ArtistNavn VARCHAR(80) NOT NULL,
 		nationalitet VARCHAR(30) NOT NULL,
-		føselsdato VARCHAR(30) NOT NULL,
-		pladeselskab VARCHAR(30) NOT NULL,
-		Band VARCHAR(30),
-		FOREIGN KEY (Band) REFERENCES Band(BandId)
-		)";
-			$sql = "CREATE Table  If NOT EXISTS Artist(
-		ArtistId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-		fornavn VARCHAR(30) NOT NULL,
-		efternavn VARCHAR(30) NOT NULL,
-		nationalitet VARCHAR(30) NOT NULL,
-		føselsdato VARCHAR(30) NOT NULL,
-		pladeselskab VARCHAR(30) NOT NULL,
-		Band VARCHAR(30),
-		FOREIGN KEY (Band) REFERENCES Band(BandId)
+		føselsdato VARCHAR(30) NOT NULL
 		)";
 
 		$sql = "CREATE Table  If NOT EXISTS Band(
 			BandId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			BandNavn VARCHAR(300) NOT NULL,
 			nationalitet VARCHAR(30) NOT NULL,
-			opratelsesdato VARCHAR(30) NOT NULL,
-			pladeselskab VARCHAR(30) NOT NULL,
-			Medlemmer VARCHAR(300),
-			FOREIGN KEY (Medlemmer) REFERENCES Artist(ArtistId)
+			dannelse VARCHAR(30) NOT NULL,
+			pladeselskab int,
+			FOREIGN KEY (pladeselskab) REFERENCES Pladeselskab(pladesId)
+			Medlemmer int,
+			FOREIGN KEY (Medlemmer) REFERENCES Medlemmer(MedlemmerId)
+		)";
+
+		$sql = "CREATE Table  If NOT EXISTS Medlemmer(
+			MedlemmerId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			BandNavn VARCHAR,
+			FOREIGN KEY (BandNavn) REFERENCES Band(BandNavn)
+			ArtistNavn VARCHAR,
+			FOREIGN KEY (ArtistNavn) REFERENCES Artist(ArtistNavn)
 		)";
 
 		$sql = "CREATE Table  If NOT EXISTS Album(
 			AlbumId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			Titel VARCHAR(30),
-			Band VARCHAR(300),
-			FOREIGN KEY (Band) REFERENCES Band(BandId),
-			Artist VARCHAR(300), 
-			FOREIGN KEY (Artist) REFERENCES Artist(ArtistId),
-			Sang VARCHAR(300), 
-			FOREIGN KEY (Sang) REFERENCES Sang(SangId),
-			Genre VARCHAR(30)
+			Genre VARCHAR(30),
+			Bandid int,
+			FOREIGN KEY (Bandid) REFERENCES Band(BandId),
+			Artistid int, 
+			FOREIGN KEY (Artistid) REFERENCES Artist(ArtistId)
 			)";
 
 		$sql = "CREATE Table  If NOT EXISTS Sang(
 			SangId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-			Titel VARCHAR(30),
-			Band VARCHAR(300),
-			FOREIGN KEY (Band) REFERENCES Band(BandId),
-			Artist VARCHAR(300), 
-			FOREIGN KEY (Artist) REFERENCES Artist(ArtistId),
 			Album VARCHAR(300), 
 			FOREIGN KEY (Album) REFERENCES Album(AlbumId),
-			Single VARCHAR(300), 
-			FOREIGN KEY (Single) REFERENCES Single(SingleId),
-			Genre VARCHAR(30),
-			Lyric VARCHAR(300)
+			Singleid int, 
+			FOREIGN KEY (Singleid) REFERENCES Single(SingleId),
+			Nummerid INT,
+			FOREIGN KEY (Nummerid) REFERENCES Nummer(NummerID)
+			)";
+
+		$sql = "CREATE Table IF NOT EXISTS Nummer(
+			NummerID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			Lyric VARCHAR(300),
+			Title Varchar(300)
 			)";
 
 		$sql = "CREATE Table  IF NOT EXISTS Single(
 			SingleId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			Titel VARCHAR(30),
-			Band VARCHAR(300),
+			Band int,
 			FOREIGN KEY (Band) REFERENCES Band(BandId),
-			Artist VARCHAR(300), 
-			FOREIGN KEY (Artist) REFERENCES Artist(ArtistId),
-			Album VARCHAR(300), 
-			FOREIGN KEY (Album) REFERENCES Album(AlbumId),
-			Sang VARCHAR(300), 
-			FOREIGN KEY (Sang) REFERENCES Sang(SangId),
-			Genre VARCHAR(30),
-			Lyric VARCHAR(300)
+			Artistid int, 
+			FOREIGN KEY (Artistid) REFERENCES Artist(ArtistId),
+			Genre VARCHAR(30)
 			)";
 					
-		$sql = "CREATE Table IF NOT EXISTS pladeselskab(
-			pladeselskabID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+		$sql = "CREATE Table IF NOT EXISTS Pladeselskab(
+			pladesId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			Navn VARCHAR(30),
-			Artist VARCHAR(300), 
-			FOREIGN KEY (Artist) REFERENCES Artist(ArtistId),
-			Band VARCHAR(300),
-			FOREIGN KEY (Band) REFERENCES Band(BandId),
 			)";
 
 

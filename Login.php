@@ -2,7 +2,7 @@
 session_start();
 $_SESSION["brugerID"] = "uBrugerID";
 $servername = "localhost";
-$dbname = "aktiespil";  
+$dbname = "Music_Site";  
 $username = $_GET["bNavn"];                  
 $password = $_GET["pword"];  
 // Create connection
@@ -13,7 +13,7 @@ $password = $_GET["pword"];
 $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Login failed: " . $conn->connect_error);
-    header("Location : http://localhost/");
+    header("Location : http://localhost:8000/MUSIC-SITE/index.php");
     
 } 
 echo "Login successfully <br>";

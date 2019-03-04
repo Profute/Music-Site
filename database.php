@@ -9,7 +9,7 @@
 	}
 	$conn->close();
 
-	require "Login.php";
+	require "AdminLogin.php";
 	$sql = "CREATE Table  If NOT EXISTS Artist(
 		ArtistId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 		ArtistNavn VARCHAR(80) NOT NULL,

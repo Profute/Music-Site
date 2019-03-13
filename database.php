@@ -31,8 +31,8 @@
 			pladesId INT(6) UNSIGNED,
 			medlemmerId INT(6) UNSIGNED,
 			PRIMARY KEY (bandId),						
-			FOREIGN KEY (pladesId) REFERENCES Pladeselskab(pladesId), 
-			FOREIGN KEY (medlemmerId) REFERENCES Medlemmer(medlemmerId)
+			FOREIGN KEY (pladesId) REFERENCES Pladeselskab(pladesId) 
+			
 		)";
 		if ($conn->query($sql) === TRUE) {
 			echo "Table Band created successfully<br>";
@@ -120,7 +120,21 @@
 			echo "Table Pladeselskab created successfully<br>";
 		} else {
 		   echo "Error creating table: <br>" . $conn->error;
-	  	}
+		  }
+		  
+		$sql = "ALTER TABLE Band
+		ADD IF NOT EXISTS FOREIGN KEY (medlemmerId) REFERENCES Medlemmer(medlemmerId)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Album Alteret successfully<br>";
+		} else {
+		   echo "Error creating table: <br>" . $conn->error;
+		}
 
-
+/* $sql = "ALTER TABLE Band
+		ADD IF NOT EXISTS FOREIGN KEY (bandNavn) REFERENCES Band(bandNavn)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Album Alteret successfully<br>";
+		} else {
+		   echo "Error creating table: <br>" . $conn->error;
+		} */
 ?>

@@ -16,12 +16,35 @@
 		nationalitet VARCHAR(30) NOT NULL,
 		foeselsdato VARCHAR(30) NOT NULL
 		)";
-
 		if ($conn->query($sql) === TRUE) {
 			echo "Table Artist created successfully<br>";
 		} else {
 		   echo "Error creating table: <br>" . $conn->error;
-	  	}
+		  }
+		$sql = "CREATE Table IF NOT EXISTS Nummer(
+			NummerID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			Lyric VARCHAR(300),
+			Title Varchar(300)
+			)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Nummer created successfully<br>";
+		} else {
+		   echo "Error creating table: <br>" . $conn->error;
+		  }
+		  
+		
+
+		$sql = "CREATE Table IF NOT EXISTS Pladeselskab(
+			pladesId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			Navn VARCHAR(30)
+			)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Pladeselskab created successfully<br>";
+		} else {
+		   echo "Error creating table: <br>" . $conn->error;
+		  }
+		  $conn->close();
+		  require "Login.php";
 
 		$sql = "CREATE Table  If NOT EXISTS Band(
 			bandId INT(6) UNSIGNED AUTO_INCREMENT, 
@@ -31,8 +54,8 @@
 			pladesId INT(6) UNSIGNED,
 			medlemmerId INT(6) UNSIGNED,
 			PRIMARY KEY (bandId),						
-			FOREIGN KEY (pladesId) REFERENCES Pladeselskab(pladesId), 
-			FOREIGN KEY (medlemmerId) REFERENCES Medlemmer(medlemmerId)
+			FOREIGN KEY (pladesId) REFERENCES Pladeselskab(pladesId) 
+			
 		)";
 		if ($conn->query($sql) === TRUE) {
 			echo "Table Band created successfully<br>";
@@ -55,48 +78,20 @@
 		} else {
 		   echo "Error creating table: <br>" . $conn->error;
 		}  
-		$sql = "CREATE Table  If NOT EXISTS Medlemmer(
+		$sql = "CREATE Table IF NOT EXISTS Medlemmer(
 			medlemmerId INT(6) UNSIGNED AUTO_INCREMENT,
-			bandNavn VARCHAR(300) NOT NULL,
-			ArtistNavn VARCHAR(80) NOT NULL,			
+			Bandid int(6) UNSIGNED,
+			Artistid int(6) UNSIGNED,
 			PRIMARY KEY(medlemmerId),
-			FOREIGN KEY (bandNavn) REFERENCES Band(bandNavn),
-			FOREIGN KEY (ArtistNavn) REFERENCES Artist(ArtistNavn)			
+			FOREIGN KEY (bandId) REFERENCES band(bandId),
+			FOREIGN KEY (ArtistId) REFERENCES artist(ArtistId)
 		)";
 		if ($conn->query($sql) === TRUE) {
 			echo "Table Medlemmer created successfully<br>";
 		} else {
 		   echo "Error creating table: <br>" . $conn->error;
 	 	}
-		
-	  	$sql = "CREATE Table  If NOT EXISTS Sang(
-			SangId INT(6) UNSIGNED AUTO_INCREMENT, 
-			Album INT(6), 
-			SingleId INT(6) UNSIGNED, 
-			NummerID INT(6) UNSIGNED,
-			PRIMARY KEY(SangId),
-			FOREIGN KEY (album) REFERENCES album(albumId),
-			FOREIGN KEY (SingleId) REFERENCES Single(SingleId),
-			FOREIGN KEY (NummerID) REFERENCES Nummer(NummerID)
-			)";
-		if ($conn->query($sql) === TRUE) {
-			echo "Table Sang created successfully<br>";
-		} else {
-		   echo "Error creating table: <br>" . $conn->error;
-	  	}
-
-		$sql = "CREATE Table IF NOT EXISTS Nummer(
-			NummerID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-			Lyric VARCHAR(300),
-			Title Varchar(300)
-			)";
-		if ($conn->query($sql) === TRUE) {
-			echo "Table Nummer created successfully<br>";
-		} else {
-		   echo "Error creating table: <br>" . $conn->error;
-	  	}
-
-	  	$sql = "CREATE Table  IF NOT EXISTS Single(
+		 $sql = "CREATE Table  IF NOT EXISTS Single(
 			SingleId INT(6) UNSIGNED AUTO_INCREMENT, 
 			Titel VARCHAR(30),
 			Genre VARCHAR(30),
@@ -104,23 +99,47 @@
 			Artistid INT(6) UNSIGNED, 
 			PRIMARY KEY(SingleId),
 			FOREIGN KEY (Band) REFERENCES Band(BandId),
-			FOREIGN KEY (Artistid) REFERENCES Artist(ArtistId)
+			
 			)";
 		if ($conn->query($sql) === TRUE) {
 			echo "Table Single created successfully<br>";
 		} else {
 		   echo "Error creating table: <br>" . $conn->error;
-		}		
-			
-		$sql = "CREATE Table IF NOT EXISTS Pladeselskab(
-			pladesId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-			Navn VARCHAR(30)
+		}	
+
+		
+		  
+	  	$sql = "CREATE Table  If NOT EXISTS Sang(
+			SangId INT(6) UNSIGNED AUTO_INCREMENT, 
+			Album INT(6) UNSIGNED,
+			SingleId INT(6) UNSIGNED,
+			NummerID INT(6) UNSIGNED,
+			PRIMARY KEY(SangId),
+			FOREIGN KEY (album) REFERENCES album(albumId),
+			FOREIGN KEY (SingleId) REFERENCES Single(SingleId)			
 			)";
 		if ($conn->query($sql) === TRUE) {
-			echo "Table Pladeselskab created successfully<br>";
+			echo "Table Sang created successfully<br>";
 		} else {
 		   echo "Error creating table: <br>" . $conn->error;
 	  	}
 
+		$sql = "ALTER TABLE Sang
+		ADD FOREIGN KEY (NummerID) REFERENCES Nummer(NummerID)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Sang ALTER successfully<br>";
+		} else {
+		   echo "Error ALTERing table: <br>" . $conn->error;
+	  	}
+		  
+		$sql = "ALTER TABLE Singel
+		ADD FOREIGN KEY (Artistid) REFERENCES Artist(ArtistId)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Singel ALTER successfully<br>";
+		} else {
+		   echo "Error ALTERing table: <br>" . $conn->error;
+	  	}	
+		
+		  
 
 ?>

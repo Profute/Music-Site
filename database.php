@@ -45,6 +45,7 @@
 		  }
 		  $conn->close();
 		  require "Login.php";
+
 		$sql = "CREATE Table  If NOT EXISTS Band(
 			bandId INT(6) UNSIGNED AUTO_INCREMENT, 
 			bandNavn VARCHAR(300) NOT NULL,
@@ -98,7 +99,7 @@
 			Artistid INT(6) UNSIGNED, 
 			PRIMARY KEY(SingleId),
 			FOREIGN KEY (Band) REFERENCES Band(BandId),
-			FOREIGN KEY (Artistid) REFERENCES Artist(ArtistId)
+			
 			)";
 		if ($conn->query($sql) === TRUE) {
 			echo "Table Single created successfully<br>";
@@ -115,8 +116,7 @@
 			NummerID INT(6) UNSIGNED,
 			PRIMARY KEY(SangId),
 			FOREIGN KEY (album) REFERENCES album(albumId),
-			FOREIGN KEY (SingleId) REFERENCES Single(SingleId),
-			FOREIGN KEY (NummerID) REFERENCES Nummer(NummerID)
+			FOREIGN KEY (SingleId) REFERENCES Single(SingleId)			
 			)";
 		if ($conn->query($sql) === TRUE) {
 			echo "Table Sang created successfully<br>";
@@ -124,10 +124,21 @@
 		   echo "Error creating table: <br>" . $conn->error;
 	  	}
 
-		
-
-	  		
-			
+		$sql = "ALTER TABLE Sang
+		ADD FOREIGN KEY (NummerID) REFERENCES Nummer(NummerID)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Sang ALTER successfully<br>";
+		} else {
+		   echo "Error ALTERing table: <br>" . $conn->error;
+	  	}
+		  
+		$sql = "ALTER TABLE Singel
+		ADD FOREIGN KEY (Artistid) REFERENCES Artist(ArtistId)";
+		if ($conn->query($sql) === TRUE) {
+			echo "Table Singel ALTER successfully<br>";
+		} else {
+		   echo "Error ALTERing table: <br>" . $conn->error;
+	  	}	
 		
 		  
 

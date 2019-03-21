@@ -2,13 +2,13 @@
 session_start();
 
 require "AdminLogin.php";
-$sql = "CREATE USER IF NOT EXISTS '".$_GET["bnavn"]."'@'localhost' IDENTIFIED BY '".$_GET["pword"]."'";
+$sql = "CREATE USER IF NOT EXISTS '".$_post["UName"]."'@'localhost' IDENTIFIED BY '".$_post["pword"]."'";
  if ($conn->query($sql) === TRUE) {
     echo "User created successfully<br>";
     } else {
      echo "Error creating user: <br>" . $conn->error;
  }
-$sql = "GRANT ALL ON aktiespil.* TO '".$_GET["bnavn"]."'@'localhost'";
+$sql = "GRANT ALL ON Music_Site.* TO '".$_post["UName"]."'@'localhost'";
  if ($conn->query($sql) === TRUE) {
      echo "User privilegier created successfully<br>";
     } else {
@@ -16,7 +16,7 @@ $sql = "GRANT ALL ON aktiespil.* TO '".$_GET["bnavn"]."'@'localhost'";
     }
 
      //Create database
-    $sql = "CREATE DATABASE IF NOT EXISTS aktiespil ";
+    $sql = "CREATE DATABASE IF NOT EXISTS Music_Site ";
     if ($conn->query($sql) === TRUE) {
     echo "Database created successfully<br>";
     } else {
@@ -24,29 +24,53 @@ $sql = "GRANT ALL ON aktiespil.* TO '".$_GET["bnavn"]."'@'localhost'";
     }
 
     // sql to create table
-    $sql = "CREATE TABLE IF NOT EXISTS aktiespil.Bruger (
-    bruger_id INT(6) UNIQUE PRIMARY KEY, 
-    brugerNavn VARCHAR(30) NOT NULL,
-    formue FLOAT(53,2)
+    $sql = "CREATE TABLE IF NOT EXISTS Music_Site.Bruger (
+    bruger_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    brugerNavn VARCHAR(30) NOT NULL
     )";
 
     if ($conn->query($sql) === TRUE) {
         echo "Table Bruger created successfully<br>";
     } else {
-       echo "Error creating table: <br>" . $conn->error;
- }
-if(!empty($_GET["bnavn"])){
-$sql = "INSERT INTO aktiespil.Bruger(bruger_id, brugerNavn, formue) 
-VALUES (' ".$_GET["uBrugerID"]." ' , ' ".$_GET["bnavn"]." ' , ' ".$_GET["formue"]." ')";
+       echo "Error creating table Bruger: <br>" . $conn->error;
+    }
+
+    // sql to create table
+    $sql = "CREATE TABLE IF NOT EXISTS Music_Site.Poste (
+        Post_Id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+        Post VARCHAR(3600) NOT NULL,
+        bruger int(6) UNSIGNED 
+        )";
+
+    if ($conn->query($sql) === TRUE) {
+    echo "Table Poste created successfully<br>";
+    } else {
+   echo "Error creating table Poste: <br>" . $conn->error;
+    }
+
+    $sql = "ALTER TABLE Poste
+          ADD FOREIGN KEY (bruger) REFERENCES Bruger(bruger_id)";
+          
+		  if ($conn->query($sql) === true) {
+			  echo "Table Poste ALTER successfully<br>";
+		  } else {
+			 echo "Error ALTERing table Poste: <br>" . $conn->error;
+			}
+
+
+
+
+if(!empty($_poste["UName"])){
+$sql = "INSERT INTO Music_Site.Bruger(brugerNavn) 
+VALUES (' ".$_poste["bnavn"]." ')";
 }
 if ($conn->query($sql) === TRUE) {
     $last_id = $conn->insert_id;
     echo "New record created successfully. Last inserted ID is: " . $last_id ;"<br>";
+    $_SESSION["brugerID"] = "$last_id";
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-$_SESSION["brugerID"] = "uBrugerID";
-
 $conn->close();
 /*
 header("location:../../index.php");

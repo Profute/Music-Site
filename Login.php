@@ -1,6 +1,6 @@
 <?Php
 session_start();
-$_SESSION["brugerID"] = "uBrugerID";
+$_SESSION["brugerID"] = "$last_id";
 $servername = "localhost";
 $dbname = "Music_Site";  
 $username = $_GET["bNavn"];                  

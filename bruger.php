@@ -26,7 +26,7 @@ $sql = "GRANT ALL ON Music_Site.* TO '".$_post["UName"]."'@'localhost'";
     // sql to create table
     $sql = "CREATE TABLE IF NOT EXISTS Music_Site.Bruger (
     bruger_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    brugerNavn VARCHAR(30) NOT NULL
+    brugerNavn VARCHAR(30) NOT NULL UNIQUE 
     )";
 
     if ($conn->query($sql) === TRUE) {
@@ -67,10 +67,10 @@ VALUES (' ".$_poste["bnavn"]." ')";
 if ($conn->query($sql) === TRUE) {
     $last_id = $conn->insert_id;
     echo "New record created successfully. Last inserted ID is: " . $last_id ;"<br>";
-    $_SESSION["brugerID"] = "$last_id";
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+$_SESSION["curentBruger"] = "bNavn";
 $conn->close();
 /*
 header("location:../../index.php");

@@ -1,10 +1,10 @@
 <?Php
 session_start();
-$_SESSION["brugerID"] = "$last_id";
+$_SESSION["curentBruger"] = "bNavn";
 $servername = "localhost";
 $dbname = "Music_Site";  
-$username = $_GET["bNavn"];                  
-$password = $_GET["pword"];  
+$username = $_post["bNavn"];                  
+$password = $_post["pword"];  
 // Create connection
 
 

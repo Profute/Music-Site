@@ -2,13 +2,13 @@
 session_start();
 
 require "AdminLogin.php";
-$sql = "CREATE USER IF NOT EXISTS '".$_post["UName"]."'@'localhost' IDENTIFIED BY '".$_post["pword"]."'";
+$sql = "CREATE USER IF NOT EXISTS '".$_POST["UName"]."'@'localhost' IDENTIFIED BY '".$_POST["pword"]."'";
  if ($conn->query($sql) === TRUE) {
     echo "User created successfully<br>";
     } else {
      echo "Error creating user: <br>" . $conn->error;
  }
-$sql = "GRANT ALL ON Music_Site.* TO '".$_post["UName"]."'@'localhost'";
+$sql = "GRANT UPDATE, INSERT, DELETE, SELECT ON Music_Site.* TO '".$_POST["UName"]."'@'localhost'";
  if ($conn->query($sql) === TRUE) {
      echo "User privilegier created successfully<br>";
     } else {
@@ -60,9 +60,9 @@ $sql = "GRANT ALL ON Music_Site.* TO '".$_post["UName"]."'@'localhost'";
 
 
 
-if(!empty($_poste["UName"])){
+if(!empty($_POST["UName"])){
 $sql = "INSERT INTO Music_Site.Bruger(brugerNavn) 
-VALUES (' ".$_poste["bnavn"]." ')";
+VALUES (' ".$_POST["Uname"]." ')";
 }
 if ($conn->query($sql) === TRUE) {
     $last_id = $conn->insert_id;
@@ -70,7 +70,7 @@ if ($conn->query($sql) === TRUE) {
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-$_SESSION["curentBruger"] = "bNavn";
+$_SESSION["curentBruger"] = "UName";
 $conn->close();
 /*
 header("location:../../index.php");

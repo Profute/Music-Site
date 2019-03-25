@@ -152,4 +152,11 @@
 			  } else {
 				 echo "Error ALTERing table Band: <br>" . $conn->error;
 				}
+		
+
+
+			
+
+
+			
  ?>

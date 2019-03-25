@@ -6,7 +6,7 @@ $sql = "CREATE USER IF NOT EXISTS '".$_POST["UName"]."'@'localhost' IDENTIFIED B
  if ($conn->query($sql) === TRUE) {
     echo "User created successfully<br>";
     } else {
-     echo "Error creating user: <br>" . $conn->error;
+     echo "Error creating user, user EXISTS. do it agin boy: <br> header('location:../../index.php');" . $conn->error;
  }
 $sql = "GRANT UPDATE, INSERT, DELETE, SELECT ON Music_Site.* TO '".$_POST["UName"]."'@'localhost'";
  if ($conn->query($sql) === TRUE) {
@@ -14,6 +14,21 @@ $sql = "GRANT UPDATE, INSERT, DELETE, SELECT ON Music_Site.* TO '".$_POST["UName
     } else {
      echo "Error creating user privilegier: <br>" . $conn->error;
     }
+
+    $sql = "CREATE USER IF NOT EXISTS 'peasant'@'localhost' IDENTIFIED BY '1234'";
+    if ($conn->query($sql) === TRUE) {
+       echo "User created successfully<br>";
+       } else {
+        echo "Error creating user: <br>" . $conn->error;
+    }
+   $sql = "GRANT SELECT ON Music_Site.* TO 'peasant'@'localhost'";
+    if ($conn->query($sql) === TRUE) {
+        echo "User privilegier created successfully<br>";
+       } else {
+        echo "Error creating user privilegier: <br>" . $conn->error;
+       }
+
+
 
      //Create database
     $sql = "CREATE DATABASE IF NOT EXISTS Music_Site ";

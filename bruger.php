@@ -87,8 +87,8 @@ if ($conn->query($sql) === TRUE) {
 }
 $_SESSION["curentBruger"] = "UName";
 $conn->close();
-/*
-header("location:../../index.php");
-*/
+
+header("location:../Music-Site/index.php");
+
 ?>
    

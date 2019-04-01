@@ -1,8 +1,8 @@
 <?php
+	if $_SESSION true
 ?>
 <!DOCTYPE html> 
 <html lang="en">
-
 	<head>
 		<title>	Music Site </title>
 		
@@ -13,8 +13,7 @@
 	
 
 	<body>
-		
-		
+			
 		<ul>
 			<li> <a class="current" href="http://localhost:8000/Music-Site/index.php">Home</a></li>
 			<li> <a href="##"> # </a> </li>
@@ -44,9 +43,9 @@
 			<li> <a href="#X"> X </a> </li>
 			<li> <a href="#Y"> Y </a> </li>
 			<li> <a href="#Z"> Z </a> </li>
+			<li> <a href="http://localhost:8000/Music-Site/Submit-lyrics.php"> Submit Lyrics </a> </li>
 			<li style="float: right"> <a href="http://localhost:8000/Music-Site/loginSite.php"> Login </a> </li>
 		</ul>
 		
 	</body>
-	
 </html>

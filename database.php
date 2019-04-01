@@ -1,4 +1,4 @@
-<?php
+<?php 
 	require "AdminLogin.php";
 	
 	$sql = "CREATE DATABASE IF NOT EXISTS Music_Site"; //Laver databasen Music_Site
@@ -153,10 +153,14 @@
 				 echo "Error ALTERing table Band: <br>" . $conn->error;
 				}
 		
+    $sql = "INSERT INTO Nummer (Lyric, Title)
+	VALUES ('', '', '')";
 
-
-			
-
-
-			
- ?>
+	if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+	} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+	} 
+	
+?>
+ 

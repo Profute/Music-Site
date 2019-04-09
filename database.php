@@ -7,9 +7,9 @@
 	} else {
 		echo "you got fucked kiddo: <br>" . $conn->error; //Hvis forbindelsen ikke oprettes får du meddelesen "you got fucked kiddo"
 	}
-	$conn->close();
+	
 
-	require "Login.php";
+	
 	$sql = "CREATE Table  If NOT EXISTS Artist(
 		ArtistId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 		ArtistNavn VARCHAR(80) NOT NULL,
@@ -130,29 +130,32 @@
 		   echo "Error ALTERing table Singel: <br>" . $conn->error;
 		  }
 		
-		  $sql = "ALTER TABLE Medlemmer
-		  ADD FOREIGN KEY (ArtistId) REFERENCES artist(ArtistId)";
-		  if ($conn->query($sql) === true) {
-			  echo "Table Medlemmer ALTER successfully<br>";
-		  } else {
-			 echo "Error ALTERing table Medlemmer: <br>" . $conn->error;
-			}
+		$sql = "ALTER TABLE Medlemmer
+		ADD FOREIGN KEY (ArtistId) REFERENCES artist(ArtistId)";
+		if ($conn->query($sql) === true) {
+			echo "Table Medlemmer ALTER successfully<br>";
+		} else {
+			echo "Error ALTERing table Medlemmer: <br>" . $conn->error;
+		}
 
-			$sql = "ALTER TABLE Album
-			ADD FOREIGN KEY (artistid) REFERENCES artist(ArtistId)";
-			if ($conn->query($sql) === true) {
-				echo "Table Album ALTER successfully<br>";
-			} else {
-			   echo "Error ALTERing table Album: <br>" . $conn->error;
-			  }
-			  $sql = "ALTER TABLE Band
-			  ADD FOREIGN KEY (pladesId) REFERENCES Pladeselskab(pladesId)";
-			  if ($conn->query($sql) === true) {
-				  echo "Table Band ALTER successfully<br>";
-			  } else {
-				 echo "Error ALTERing table Band: <br>" . $conn->error;
-				}
+		$sql = "ALTER TABLE Album
+		ADD FOREIGN KEY (artistid) REFERENCES artist(ArtistId)";
+		if ($conn->query($sql) === true) {
+			echo "Table Album ALTER successfully<br>";
+		} else {
+			echo "Error ALTERing table Album: <br>" . $conn->error;
+		}
 		
+		$sql = "ALTER TABLE Band
+		ADD FOREIGN KEY (pladesId) REFERENCES Pladeselskab(pladesId)";
+		if ($conn->query($sql) === true) {
+			echo "Table Band ALTER successfully<br>";
+		} else {
+			echo "Error ALTERing table Band: <br>" . $conn->error;
+		}
+
+		$conn->close();
+	require "Login.php";
     $sql = "INSERT INTO Nummer (Lyric, Title)
 	VALUES ('', '')";
 

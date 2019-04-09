@@ -164,7 +164,7 @@
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 	} 
-
+//$sql = "SET @letter = '" . $letter . "'; SELECT Titel FROM Album WHERE LOWER(LEFT(Titel,1)) = @letter";
 	$sql = "INSERT INTO Artist (ArtistNavn, nationalitet, foeselsdato)
 	VALUES ('', '', '')";
 

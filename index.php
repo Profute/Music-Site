@@ -1,5 +1,5 @@
 <?php
-	if $_SESSION true
+	//if $_SESSION == true
 ?>
 <!DOCTYPE html> 
 <html lang="en">

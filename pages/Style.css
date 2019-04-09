@@ -1,0 +1,100 @@
+	body { 
+		background: url(http://www.freelargeimages.com/wp-content/uploads/2015/07/Black_Pattern_Wallpaper_01.jpg)  no-repeat center center fixed;
+		background-size: cover;
+	}
+	
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	ul { /*konstruerer en navigations bar*/
+		list-style-type: none;
+		position: fixed;
+		top: 0%;
+		width: 100%;
+		overflow: hidden;
+		background-color: #000000; /*Ændrer navigation barens farve til sort*/
+	}
+	
+	li {
+		float:left;
+	}
+	
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	
+	li a:hover{
+		background-color: #333;
+	}
+	
+	.current{
+		background-color: #990000;
+	}
+	
+	div.table{
+		border: solid red;
+		border-radius: 25px;
+		position: absolute;
+		width: 17%;
+		top: 15%;
+		left: 40%;
+		padding: 14px 16px;
+		text-align: center;
+	}
+	
+	.input-group {
+		color: white;
+		margin: 14px;
+	}
+	
+	.btn {
+		background-color: red;
+		border: none;
+		border-radius: 8px;
+		padding: 14px, 16px;
+		display: inline-block;
+		padding: 8px 28px;
+		cursor: pointer;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+	}
+	
+	.title {
+		color: red;
+		margin: 14px;
+	}
+	
+	.lyrics {
+		padding: 14px 16px;
+		margin-top: 8%;
+		margin-bottom: 8%;
+		margin-left: 30%;
+		position: inherit;
+		width: 40%;
+		height: auto;
+		border-radius: 25px;
+		border: solid red;
+		text-align: center;
+	}
+	
+	.add_lyrics_textarea {
+		width: 85%;
+		height: auto;
+		min-height: 400px;
+		border: none;	
+		overflow: auto;
+		outline: none;
+		resize: none;
+		box-shadow: none;
+		font-size: 18px;
+		line-height: 1.25;
+	}
+	
+		

@@ -42,3 +42,12 @@
 		
     </body>
 </html>
+<?php 
+require "Login.php";//skal ændres til login.php eller noget ligne 
+$letter='v';
+include "sql.php";
+$result = sqlComand($conn,$letter);
+foreach($result as &$row) {
+    echo "Titel: " . $row["Titel"].  "<br>";
+}
+?>

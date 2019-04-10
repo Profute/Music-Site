@@ -76,8 +76,16 @@ $sql = "GRANT UPDATE, INSERT, DELETE, SELECT ON Music_Site.* TO '".$_POST["UName
 
 
 if(!empty($_POST["UName"])){
-$_SESSION["curentBruger"] = $_POST["Uname"];
+$sql = "INSERT INTO Music_Site.Bruger(brugerNavn) 
+VALUES (' ".$_POST["Uname"]." ')";
 }
+if ($conn->query($sql) === TRUE) {
+    $last_id = $conn->insert_id;
+    echo "New record created successfully. Last inserted ID is: " . $last_id ;"<br>";
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$_SESSION["curentBruger"] = "UName";
 $conn->close();
 
 header("location:../Music-Site/index.php");

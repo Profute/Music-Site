@@ -6,4 +6,6 @@ $result = sqlComand($conn,$letter);
 foreach($result as &$row) {
     echo "Titel: " . $row["Titel"].  "<br>";
 }
+
+
 ?>

@@ -48,22 +48,22 @@
 				
 				<div class="input-group"> <h2>
 					<label> Song Name </label> <br>
-					<input style="width:85%" type="text" name=""> 
+					<input style="width:85%" type="text" name="SName" pattern="[1-0A-Za-z]{99}"> 
 				</div> </h2>
 				
 				<div class="input-group"> <h2>
 					<label> Artist Name </label> <br>
-					<input style="width:85%" type="text" name=""> 
+					<input style="width:85%" type="text" name="AName" pattern="[1-0A-Za-z]{99}"> 
 				</div> </h2>
 				
                 <div class="input-group"> <h2>
 					<label> Album Name </label> <br>
-					<input style="width:85%" type="text" name=""> 
+					<input style="width:85%" type="text" name="AlName" pattern="[1-0A-Za-z]{99}"> 
                 </div> </h2>
 				
 				<div class="input-group"> <h2>
 					<label> Lyrics </label> <br>
-					<textarea spellcheck="true" class="add_lyrics_textarea" name=""></textarea>
+					<textarea spellcheck="true" class="add_lyrics_textarea" name="LName" pattern="[1-0A-Za-z]{60000}"></textarea>
 				</div> </h2>
 				
                 <div class="input-group">

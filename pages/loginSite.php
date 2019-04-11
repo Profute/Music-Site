@@ -46,12 +46,12 @@
 				
                 <div class="input-group"> <h2>
 					<label> Username </label> <br>
-					<input style="width:75%" type="text" name="UName"> 
+					<input style="width:75%" type="text" name="UName" pattern="[1-0A-Za-z]{99}"> 
                 </div> </h2>
 				
 				<div class="input-group"> <h2>
 					<label> Password </label> <br>
-					<input style="width:75%" type="password" name="PWord">
+					<input style="width:75%" type="password" name="PWord" pattern="[1-0A-Za-z]{99}">
 				</div> </h2>
 				
                 <div class="input-group">
@@ -66,17 +66,17 @@
 				
 				<div class="input-group"> <h2>
 					<label> Create Username </label> <br>
-					<input style="width:75%" type="text" name="Create-UName">
+					<input style="width:75%" type="text" name="Create-UName" pattern="[1-0A-Za-z]{99}">
 				</div> </h2>
 				
 				<div class="input-group"> <h2>
 					<label> Create Password </label> <br>
-					<input style="width:75%" type="password" name="Create Pword">
+					<input style="width:75%" type="password" name="Create Pword" pattern="[1-0A-Za-z]{99}">
 				</div> </h2>
 				
 				<div class="input-group"> <h2>
 					<label> Repeat Password </label> <br>
-					<input style="width:75%" type="password" name="repeat Pword">
+					<input style="width:75%" type="password" name="repeat Pword" pattern="[1-0A-Za-z]{99}">
 				</div> </h2>
 				
 				<div class="input-type"> <h2>

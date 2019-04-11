@@ -20,7 +20,7 @@ require "Login.php";
     echo "Error: " . $sql . "<br>" . $conn->error;
     } 
     
-    //$sql = "INSERT INTO Album (Titel, Genre)
+    //$sql = "INSERT INTO Album (Titel, Genre, Artistid,NummerID)
     $sql = "INSERT INTO Album (Titel,Artistid,NummerID)
     VALUES ('".$_POST["AlName"]."','".$last_Aid."','".$last_Nid."')";
 
@@ -56,7 +56,7 @@ require "Login.php";
 	// } else {
     // echo "Error: " . $sql . "<br>" . $conn->error;
 	// }
-
+ 
 	
 ?>
  

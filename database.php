@@ -3,14 +3,14 @@
 	
 	$sql = "CREATE DATABASE IF NOT EXISTS Music_Site"; //Laver databasen Music_Site
 	if ($conn->query($sql) == true) {
-		echo "Salutations traveler"; //Hvis forbindelsen oprettes får du hilsnen "Salutations traveler"
+		echo "Salutations traveler <br>"; //Hvis forbindelsen oprettes får du hilsnen "Salutations traveler"
 	} else {
 		echo "you got fucked kiddo: <br>" . $conn->error; //Hvis forbindelsen ikke oprettes får du meddelesen "you got fucked kiddo"
 	}
 	
 
 	
-	$sql = "CREATE Table  If NOT EXISTS Artist(
+	$sql = "CREATE Table  If NOT EXISTS Music_Site.Artist(
 		ArtistId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 		ArtistNavn VARCHAR(80) NOT NULL,
 		nationalitet VARCHAR(30) NOT NULL,
@@ -21,7 +21,7 @@
 		} else {
 		   echo "Error creating table Artist: <br>" . $conn->error;
 		  }
-		$sql = "CREATE Table IF NOT EXISTS Nummer(
+		$sql = "CREATE Table IF NOT EXISTS Music_Site.Nummer(
 			NummerID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			Lyric VARCHAR(300),
 			Title Varchar(300)
@@ -32,7 +32,7 @@
 		   echo "Error creating table Nummer: <br>" . $conn->error;
 		  }
 
-		$sql = "CREATE Table IF NOT EXISTS Pladeselskab(
+		$sql = "CREATE Table IF NOT EXISTS Music_Site.Pladeselskab(
 			pladesId INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			Navn VARCHAR(30)
 			)";
@@ -42,7 +42,7 @@
 		   echo "Error creating table Pladeselskab: <br>" . $conn->error;
 		  }
 
-		$sql = "CREATE Table  If NOT EXISTS Band(
+		$sql = "CREATE Table  If NOT EXISTS Music_Site.Band(
 			bandId INT(6) UNSIGNED AUTO_INCREMENT, 
 			bandNavn VARCHAR(300) NOT NULL,
 			nationalitet VARCHAR(30) NOT NULL,
@@ -56,7 +56,7 @@
 		   echo "Error creating table Band: <br>" . $conn->error;
 		}
 		// skal laves så forien key tilføres efter tabelen er lavet.
-		$sql = "CREATE Table  If NOT EXISTS Album(
+		$sql = "CREATE Table  If NOT EXISTS Music_Site.Album(
 			AlbumId INT(6) UNSIGNED AUTO_INCREMENT, 
 			Titel VARCHAR(30),
 			Genre VARCHAR(30),
@@ -70,7 +70,7 @@
 		} else {
 		   echo "Error creating table Album: <br>" . $conn->error;
 		}  
-		$sql = "CREATE Table IF NOT EXISTS Medlemmer(
+		$sql = "CREATE Table IF NOT EXISTS Music_Site.Medlemmer(
 			medlemmerId INT(6) UNSIGNED AUTO_INCREMENT,
 			Bandid int(6) UNSIGNED,
 			Artistid int(6) UNSIGNED,
@@ -82,7 +82,7 @@
 		} else {
 		   echo "Error creating table Medlemmer: <br>" . $conn->error;
 	 	}
-		 $sql = "CREATE Table IF NOT EXISTS Single(
+		 $sql = "CREATE Table IF NOT EXISTS Music_Site.Single(
 			SingleId INT(6) UNSIGNED AUTO_INCREMENT, 
 			Titel VARCHAR(30),
 			Genre VARCHAR(30),
@@ -99,7 +99,7 @@
 
 		
 		  
-	  	$sql = "CREATE Table  If NOT EXISTS Sang(
+	  	$sql = "CREATE Table  If NOT EXISTS Music_Site.Sang(
 			SangId INT(6) UNSIGNED AUTO_INCREMENT, 
 			Album INT(6) UNSIGNED,
 			SingleId INT(6) UNSIGNED,
@@ -114,7 +114,7 @@
 		   echo "Error creating table Sang: <br>" . $conn->error;
 	  	}
 
-		$sql = "ALTER TABLE Sang
+		$sql = "ALTER TABLE Music_Site.Sang
 		ADD FOREIGN KEY (NummerID) REFERENCES Nummer(NummerID)";
 		if ($conn->query($sql) === true) {
 			echo "Table Sang ALTER successfully<br>";
@@ -122,7 +122,7 @@
 		   echo "Error ALTERing table Sang: <br>" . $conn->error;
 	  	}
 		  
-		$sql = "ALTER TABLE Single
+		$sql = "ALTER TABLE Music_Site.Single
 		ADD FOREIGN KEY (Artistid) REFERENCES Artist(ArtistId)";
 		if ($conn->query($sql) === true) {
 			echo "Table Singel ALTER successfully<br>";
@@ -130,7 +130,7 @@
 		   echo "Error ALTERing table Singel: <br>" . $conn->error;
 		  }
 		
-		$sql = "ALTER TABLE Medlemmer
+		$sql = "ALTER TABLE Music_Site.Medlemmer
 		ADD FOREIGN KEY (ArtistId) REFERENCES artist(ArtistId)";
 		if ($conn->query($sql) === true) {
 			echo "Table Medlemmer ALTER successfully<br>";
@@ -138,7 +138,7 @@
 			echo "Error ALTERing table Medlemmer: <br>" . $conn->error;
 		}
 
-		$sql = "ALTER TABLE Album
+		$sql = "ALTER TABLE Music_Site.Album
 		ADD FOREIGN KEY (artistid) REFERENCES artist(ArtistId)";
 		if ($conn->query($sql) === true) {
 			echo "Table Album ALTER successfully<br>";
@@ -146,7 +146,7 @@
 			echo "Error ALTERing table Album: <br>" . $conn->error;
 		}
 		
-		$sql = "ALTER TABLE Band
+		$sql = "ALTER TABLE Music_Site.Band
 		ADD FOREIGN KEY (pladesId) REFERENCES Pladeselskab(pladesId)";
 		if ($conn->query($sql) === true) {
 			echo "Table Band ALTER successfully<br>";

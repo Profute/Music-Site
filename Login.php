@@ -8,7 +8,7 @@ $dbname = "Music_Site";
 
 //Afhængigt af hvad username og password angiver den hvilken bruger er logget ind
 if($_SESSION["Welcome"] = true){
-	$username = 'Peasant';
+	$username = 'peasant';
 	$password = 1234;
 } else {
 	$username = $_POST["UName"];                  

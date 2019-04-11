@@ -40,9 +40,9 @@
 			<li style="float: right"> <a class="current" href="http://localhost/Music-Site/loginSite.php"> ../Login </a> </li>
 		</ul>
 		
-        <div class="table">
+        <div class="table_login">
             <form method="post" action="submit.php">
-				<h1 class="title"> ../Login </h1>
+				<h1 class="title"> Login </h1>
 				
                 <div class="input-group"> <h2>
 					<label> Username </label> <br>
@@ -60,7 +60,7 @@
 			</form>
 		</div>
 		
-		<div class="">
+		<div class="table_create_user">
 			<form method="post" action="bruger.php">
 				<h1 class="title"> Create User </h1>
 				

@@ -1,7 +1,10 @@
 <?php
-	include echo.php;
-?>
+	function albumdetails($conn,$AlbumId){
+	   // getAlbum($conn,$AlbumId);
+		echo(json_encode(getAlbum($conn,$AlbumId)));
 
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -50,7 +53,7 @@
 			include "../sql.php";
 			$result = getAllAlbums($conn,$letter);
 			foreach($result as &$row) {
-				echo "<br><a href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a><br>";
+				echo "<a class=\"layout\" href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a>";
 			}
 		?>
 			

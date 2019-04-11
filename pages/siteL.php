@@ -39,10 +39,6 @@
 			<li> <a href="http://localhost/Music-Site/pages/Submit-lyrics.php"> Submit Lyrics </a> </li>
 			<li style="float: right"> <a href="http://localhost/Music-Site/pages/loginSite.php"> Login </a> </li>
 		</ul>
-		<?php
-	include "../echo.php";
-?>
-
 
 		<?php 
 			require "../Login.php";
@@ -50,7 +46,7 @@
 			include "../sql.php";
 			$result = getAllAlbums($conn,$letter);
 			foreach($result as &$row) {
-				echo "<br><a href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a><br>";
+				echo "<a class=\"layout\" href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a>";
 			}
 		?>
 			

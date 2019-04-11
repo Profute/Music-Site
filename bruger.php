@@ -2,6 +2,7 @@
 session_start();
 
 require "AdminLogin.php";
+if(!empty($_POST["UName"]&&$_POST["PWord"])){
 $sql = "CREATE USER IF NOT EXISTS '".$_POST["UName"]."'@'localhost' IDENTIFIED BY '".$_POST["pword"]."'";
  if ($conn->query($sql) === TRUE) {
     echo "User created successfully<br>";
@@ -14,22 +15,20 @@ $sql = "GRANT UPDATE, INSERT, DELETE, SELECT ON Music_Site.* TO '".$_POST["UName
     } else {
      echo "Error creating user privilegier: <br>" . $conn->error;
     }
-
+} else {
     $sql = "CREATE USER IF NOT EXISTS 'peasant'@'localhost' IDENTIFIED BY '1234'";
     if ($conn->query($sql) === TRUE) {
-       echo "User created successfully<br>";
+       echo "Peasant created successfully<br>";
        } else {
-        echo "Error creating user: <br>" . $conn->error;
+        echo "Error creating peasant: <br>" . $conn->error;
     }
    $sql = "GRANT SELECT ON Music_Site.* TO 'peasant'@'localhost'";
     if ($conn->query($sql) === TRUE) {
-        echo "User privilegier created successfully<br>";
+        echo "Peasant privilegier created successfully<br>";
        } else {
-        echo "Error creating user privilegier: <br>" . $conn->error;
+        echo "Error creating peasant privilegier: <br>" . $conn->error;
        }
-
-
-
+    }
      //Create database
     $sql = "CREATE DATABASE IF NOT EXISTS Music_Site ";
     if ($conn->query($sql) === TRUE) {
@@ -63,7 +62,7 @@ $sql = "GRANT UPDATE, INSERT, DELETE, SELECT ON Music_Site.* TO '".$_POST["UName
    echo "Error creating table Poste: <br>" . $conn->error;
     }
 
-    $sql = "ALTER TABLE Poste
+    $sql = "ALTER TABLE Music_Site.Poste
           ADD FOREIGN KEY (bruger) REFERENCES Bruger(bruger_id)";
           
 		  if ($conn->query($sql) === true) {
@@ -90,7 +89,7 @@ if ($conn->query($sql) === TRUE) {
 $_SESSION["curentBruger"] = "UName";
 $conn->close();
 
-header("location:../Music-Site/index.php");
+//header("location:../Music-Site/index.php");
 
 ?>
    

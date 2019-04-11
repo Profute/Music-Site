@@ -10,7 +10,7 @@ function albumdetails($conn,$AlbumId){
 require "AdminLogin.php";
 $letter='h';
 include "sql.php";
-$result = sqlComand($conn,$letter);
+$result = getAllAlbums($conn,$letter);
 foreach($result as &$row) {
     echo "<br><a href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a><br>";
 }

@@ -1,10 +1,7 @@
 <?php
-	function albumdetails($conn,$AlbumId){
-	   // getAlbum($conn,$AlbumId);
-		echo(json_encode(getAlbum($conn,$AlbumId)));
-
-	}
+	include echo.php;
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>

@@ -1,10 +1,3 @@
-<?php
-	function albumdetails($conn,$AlbumId){
-	   // getAlbum($conn,$AlbumId);
-		echo(json_encode(getAlbum($conn,$AlbumId)));
-
-	}
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -46,7 +39,11 @@
 			<li> <a href="http://localhost/Music-Site/pages/Submit-lyrics.php"> Submit Lyrics </a> </li>
 			<li style="float: right"> <a href="http://localhost/Music-Site/pages/loginSite.php"> Login </a> </li>
 		</ul>
-		
+		<?php
+	include "../echo.php";
+?>
+
+
 		<?php 
 			require "../Login.php";
 			$letter='l';
@@ -67,12 +64,3 @@
 		?>
     </body>
 </html>
-<?php 
-require "../Login.php";//skal ændres til login.php eller noget ligne 
-$letter='l';
-include "../sql.php";
-$result = getAllAlbums($conn,$letter);
-foreach($result as &$row) {
-    echo "Titel: " . $row["Titel"].  "<br>";
-}
-?>

@@ -1,10 +1,7 @@
 <?php
-	function albumdetails($conn,$AlbumId){
-	   // getAlbum($conn,$AlbumId);
-		echo(json_encode(getAlbum($conn,$AlbumId)));
-
-	}
+	include echo.php;
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -68,12 +65,3 @@
 
     </body>
 </html>
-<?php 
-require "../Login.php";//skal ændres til login.php eller noget ligne 
-$letter='a';
-include "../sql.php";
-$result = getAllAlbums($conn,$letter);
-foreach($result as &$row) {
-    echo "Titel: " . $row["Titel"].  "<br>";
-}
-?>

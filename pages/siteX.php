@@ -10,7 +10,6 @@
 	<head>
         <title> Music-Site/X </title>
         <link rel="stylesheet" type="text/css" href="style.css">
-
     </head>
 	
     <body>

@@ -1,10 +1,9 @@
 <?php
 	require('../database.php');
 	include('../bruger.php');
+	require('../Login.php');
 ?>
-<?php
-require('../../Login.php');
-?>
+
 <!DOCTYPE html> 
 <html lang="en">
 	<head>

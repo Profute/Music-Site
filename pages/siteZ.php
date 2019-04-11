@@ -1,10 +1,7 @@
 <?php
-	function albumdetails($conn,$AlbumId){
-	   // getAlbum($conn,$AlbumId);
-		echo(json_encode(getAlbum($conn,$AlbumId)));
-
-	}
+	include "../echo.php";
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -47,23 +44,25 @@
 			<li style="float: right"> <a href="http://localhost/Music-Site/pages/loginSite.php"> Login </a> </li>
 		</ul>
 		
-		<?php 
-			require "../Login.php";
-			$letter='z';
-			include "../sql.php";
-			$result = getAllAlbums($conn,$letter);
-			foreach($result as &$row) {
-				echo "<br><a href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a><br>";
-			}
-		?>
-			
-		<?php 
-			if(isset($_GET['album'])) $linkchoice=$_GET['album'];
-			else $linkchoice='';
+		<form class="layout">
+			<?php 
+				require "../Login.php";
+				$letter='z';
+				include "../sql.php";
+				$result = getAllAlbums($conn,$letter);
+				foreach($result as &$row) {
+					echo "<br><a href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a><br>";
+				}
+			?>
+				
+			<?php 
+				if(isset($_GET['album'])) $linkchoice=$_GET['album'];
+				else $linkchoice='';
 
-			if($linkchoice!=''){
-				albumdetails($conn,(int)$linkchoice);
-			}
-		?>
+				if($linkchoice!=''){
+					albumdetails($conn,(int)$linkchoice);
+				}
+			?>
+		</form>
     </body>
 </html>

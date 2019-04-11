@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title> User ../Login </title>
+        <title> User Login </title>
         <link rel="stylesheet" type="text/css" href="style.css">
 
     </head>
@@ -41,7 +41,7 @@
 		</ul>
 		
         <div class="table">
-            <form method="post" action="submit.php">
+            <form method="post" action="Submit-lyrics.php">
 				<h1 class="title"> ../Login </h1>
 				
                 <div class="input-group"> <h2>
@@ -60,7 +60,7 @@
 			</form>
 		</div>
 		
-		<div class="">
+		<div class="table">
 			<form method="post" action="bruger.php">
 				<h1 class="title"> Create User </h1>
 				

@@ -42,7 +42,7 @@
 		</ul>
 		
 		<div class="lyrics">
-			<form method="post" action="insert.php">
+			<form method="post" action="../insert.php">
 			
 				<h1 class="title"> Add Lyrics </h1>
 				

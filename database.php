@@ -74,7 +74,7 @@
 			Titel VARCHAR(30),
 			Artistid int(6) UNSIGNED,
 			NummerID INT(6) UNSIGNED,
-			PRIMARY KEY(albumId),	
+			PRIMARY KEY(albumId)	
 			)";
 		if ($conn->query($sql) === true) {
 			echo "Table Album created successfully<br>";

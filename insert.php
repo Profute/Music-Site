@@ -2,9 +2,9 @@
 require "Login.php";
     $sql = "INSERT INTO Nummer (Lyric, Title)
 	VALUES ('".$_POST["LName"]."', '".$_POST["SName"]."')";
-    $last_NummerId = $conn->insert_id;
 	if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+        $last_Nid = $conn->insert_id;
+        echo "New record created successfully. Last inserted ID is: " . $last_Nid."<br>";
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 	} 
@@ -14,14 +14,15 @@ require "Login.php";
 	VALUES ('".$_POST["AName"]."')";
 
 	if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+        $last_Aid = $conn->insert_id;
+        echo "New record created successfully. Last inserted ID is: " . $last_Aid."<br>";
 	} else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     } 
     
     //$sql = "INSERT INTO Album (Titel, Genre)
-    $sql = "INSERT INTO Album (Titel,NummerID)
-    VALUES ('".$_POST["AlName"]."','".$last_NummerId."')";
+    $sql = "INSERT INTO Album (Titel,Artistid,NummerID)
+    VALUES ('".$_POST["AlName"]."','".$last_Aid."','".$last_Nid."')";
 
     if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

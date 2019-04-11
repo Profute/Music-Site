@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require "AdminLogin.php";
-$sql = "CREATE USER IF NOT EXISTS '".$_POST["UName"]."'@'localhost' IDENTIFIED BY '".$_POST["pword"]."'";
+require "C:\Abyss Web Server\AdminLogin.php";
+$sql = "CREATE USER IF NOT EXISTS '".$_POST["UName"]."'@'localhost' IDENTIFIED BY '".$_POST["PWord"]."'";
  if ($conn->query($sql) === TRUE) {
     echo "User created successfully<br>";
     } else {
@@ -82,15 +82,13 @@ VALUES (' ".$_POST["Uname"]." ')";
 if ($conn->query($sql) === TRUE) {
     $last_id = $conn->insert_id;
     echo "New record created successfully. Last inserted ID is: " . $last_id ;"<br>";
-    $_SESSION["brugerID"] = "$last_id";
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
 $_SESSION["curentBruger"] = "UName";
 $conn->close();
 
-header("location:../Music-Site/index.php");
+//header("location:../Music-Site/index.php");
 
 ?>
    

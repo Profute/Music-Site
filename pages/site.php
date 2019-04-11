@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title> User Login </title>
+        <title> Music-Site/# </title>
         <link rel="stylesheet" type="text/css" href="style.css">
 
     </head>
@@ -9,7 +9,7 @@
     <body>
 		<ul>
 			<li> <a href="http://localhost:8000/Music-Site/pages/index.php">Home</a></li>
-			<li> <a href="http://localhost:8000/Music-Site/pages/site.php"> # </a> </li>
+			<li> <a class="current" href="http://localhost:8000/Music-Site/pages/site.php"> # </a> </li>
 			<li> <a href="http://localhost:8000/Music-Site/pages/siteA.php"> A </a> </li>
 			<li> <a href="http://localhost:8000/Music-Site/pages/siteB.php"> B </a> </li>
 			<li> <a href="http://localhost:8000/Music-Site/pages/siteC.php"> C </a> </li>
@@ -39,6 +39,9 @@
 			<li> <a href="http://localhost:8000/Music-Site/pages/Submit-lyrics.php"> Submit Lyrics </a> </li>
 			<li style="float: right"> <a href="http://localhost:8000/Music-Site/pages/loginSite.php"> Login </a> </li>
 		</ul>
+		
+		
+		
 		
     </body>
 </html>

@@ -1,8 +1,11 @@
 <?php
 function albumdetails($conn,$AlbumId){
    // getAlbum($conn,$AlbumId);
-    echo(json_encode(getAlbum($conn,$AlbumId)));
-
+    //echo(json_encode(getAlbum($conn,$AlbumId)));
+    $albumResult = getAlbum($conn,$AlbumId);
+    foreach($albumResult as &$row){
+        echo "<br><a href=\"?album=" . urlencode($row["NummerID"]) .  "\">" . $row["Titel"] . "</a><br>";
+    }
 }
 ?>
 <html><body>

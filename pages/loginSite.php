@@ -42,7 +42,7 @@
 		
         <div class="table">
             <form method="post" action="Submit-lyrics.php">
-				<h1 class="title"> ../Login </h1>
+				<h1 class="title"> Login </h1>
 				
                 <div class="input-group"> <h2>
 					<label> Username </label> <br>
@@ -60,7 +60,7 @@
 			</form>
 		</div>
 		
-		<div class="table">
+		<div class="table_create_user">
 			<form method="post" action="bruger.php">
 				<h1 class="title"> Create User </h1>
 				

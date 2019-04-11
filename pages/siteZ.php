@@ -51,7 +51,7 @@
 				include "../sql.php";
 				$result = getAllAlbums($conn,$letter);
 				foreach($result as &$row) {
-					echo "<br><a href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a><br>";
+					echo "<a class=\"layout\" href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a>";
 				}
 			?>
 				

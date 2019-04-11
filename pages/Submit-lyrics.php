@@ -63,8 +63,8 @@
 				
 				<div class="input-group"> <h2>
 					<label> Lyrics </label> <br>
-					<textarea spellcheck="true" class="add_lyrics_textarea">
-				</textarea> </div> </h2>
+					<textarea spellcheck="true" class="add_lyrics_textarea"></textarea>
+				</div> </h2>
 				
                 <div class="input-group">
 					<button type="" name="" class="btn"> Submit Lyrics </button>

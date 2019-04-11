@@ -1,11 +1,8 @@
 <?php
-	/*
-	if ($_SESSION("Welcome") {
-		
-	}
-	*/
+	require('location:../Music-Site/database.php');
+	include('location:../Music-Site/bruger.php');
+	require('location:../Music-Site/Login.php');
 ?>
-
 
 <!DOCTYPE html> 
 <html lang="en">

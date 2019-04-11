@@ -1,3 +1,10 @@
+<?php
+	function albumdetails($conn,$AlbumId){
+	   // getAlbum($conn,$AlbumId);
+		echo(json_encode(getAlbum($conn,$AlbumId)));
+
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -40,6 +47,24 @@
 			<li style="float: right"> <a href="http://localhost:8000/Music-Site/pages/loginSite.php"> Login </a> </li>
 		</ul>
 		
+		<?php 
+			require "Login.php";
+			$letter='l';
+			include "sql.php";
+			$result = sqlComand($conn,$letter);
+			foreach($result as &$row) {
+				echo "<br><a href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a><br>";
+			}
+		?>
+			
+		<?php 
+			if(isset($_GET['album'])) $linkchoice=$_GET['album'];
+			else $linkchoice='';
+
+			if($linkchoice!=''){
+				albumdetails($conn,(int)$linkchoice);
+			}
+		?>
     </body>
 </html>
 <?php 

@@ -42,7 +42,8 @@
 		
 		<form class="layout">
 		<?php 
-		include "../test.php"
+		$letter='z';
+		include "../display.php"
 		?>
 		</form>
     </body>

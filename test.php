@@ -36,7 +36,7 @@ function albumdetails($conn,$AlbumId){
 <html><body>
 <?php 
 require "Login.php";
-$letter='k';
+
 include "sql.php";
 $result = getAllAlbums($conn,$letter);
 foreach($result as &$row) {

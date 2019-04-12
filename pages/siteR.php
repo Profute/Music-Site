@@ -41,7 +41,8 @@
 		</ul>
 		
 		<?php 
-		include "../test.php"
+		$letter='r';
+		include "../display.php"
 		?>
     </body>
 </html>

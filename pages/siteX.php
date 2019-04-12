@@ -40,7 +40,8 @@
 		</ul>
 		
 		<?php 
-		include "../test.php"
+		$letter='x';
+		include "../display.php"
 		?>
     </body>
 </html>

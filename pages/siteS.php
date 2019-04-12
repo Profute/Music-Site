@@ -1,10 +1,3 @@
-<?php
-	function albumdetails($conn,$AlbumId){
-	   // getAlbum($conn,$AlbumId);
-		echo(json_encode(getAlbum($conn,$AlbumId)));
-
-	}
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -48,22 +41,7 @@
 		</ul>
 		
 		<?php 
-			require "../Login.php";
-			$letter='s';
-			include "../sql.php";
-			$result = getAllAlbums($conn,$letter);
-			foreach($result as &$row) {
-				echo "<a class=\"layout\" href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a>";
-			}
-		?>
-			
-		<?php 
-			if(isset($_GET['album'])) $linkchoice=$_GET['album'];
-			else $linkchoice='';
-
-			if($linkchoice!=''){
-				albumdetails($conn,(int)$linkchoice);
-			}
+		include "../test.php"
 		?>
     </body>
 </html>

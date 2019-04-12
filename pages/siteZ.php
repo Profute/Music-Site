@@ -1,7 +1,3 @@
-<?php
-	include "../echo.php";
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -45,24 +41,9 @@
 		</ul>
 		
 		<form class="layout">
-			<?php 
-				require "../Login.php";
-				$letter='z';
-				include "../sql.php";
-				$result = getAllAlbums($conn,$letter);
-				foreach($result as &$row) {
-					echo "<a class=\"layout\" href=\"?album=" . urlencode($row["AlbumId"]) .  "\">" . $row["Titel"] . "</a>";
-				}
-			?>
-				
-			<?php 
-				if(isset($_GET['album'])) $linkchoice=$_GET['album'];
-				else $linkchoice='';
-
-				if($linkchoice!=''){
-					albumdetails($conn,(int)$linkchoice);
-				}
-			?>
+		<?php 
+		include "../test.php"
+		?>
 		</form>
     </body>
 </html>

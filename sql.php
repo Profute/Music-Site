@@ -19,8 +19,8 @@ if(!$result){
     echo "0 results <br>";
     echo  $conn->error;
 }
-echo(json_encode($result));
-echo(json_encode($array1));
+//echo(json_encode($result));
+//echo(json_encode($array1));
 return $array1;
 }
 function getAlbum($conn,$AlbumId)

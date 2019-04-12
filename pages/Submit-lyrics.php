@@ -67,7 +67,7 @@
 				</div> </h2>
 				
                 <div class="input-group">
-					<button type="text" name="submit-lyrics" class="btn"> Submit Lyrics </button>
+					<button href="http://localhost/Music-Site/pages/index.php" type="text" name="submit-lyrics" class="btn"> Submit Lyrics </button>
 				</div> 
 		</div>
 		

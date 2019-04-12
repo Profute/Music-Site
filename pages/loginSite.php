@@ -40,7 +40,7 @@
 			<li style="float: right"> <a class="current" href="http://localhost/Music-Site/loginSite.php"> ../Login </a> </li>
 		</ul>
 		
-        <div class="table">
+        <div class="table_login">
             <form method="post" action="Submit-lyrics.php">
 				<h1 class="title"> Login </h1>
 				

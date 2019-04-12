@@ -42,7 +42,7 @@
 		border-radius: 25px;
 		position: absolute;
 		width: 20%;
-		margin-top: 8%;
+		margin-top: 15%;
 		margin-left: 20%;
 		padding: 14px 16px;
 		text-align: center;
@@ -54,7 +54,7 @@
 		border-radius: 25px;
 		position: absolute;
 		width: 20%;
-		margin-top: 8%;
+		margin-top: 15%;
 		margin-left: 60%;
 		padding: 14px 16px;
 		text-align: center;
@@ -111,11 +111,12 @@
 	}
 	
 	.layout {
+		width: 2%;
 		display: block;
 		color: white;
 		margin-top: 5%;
 		margin-bottom: 8%;
-		text-align: center;
+		margin-left: 47%;
 		padding: 14px 16px;
 		text-decoration: none;
 		position: inherit;

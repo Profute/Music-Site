@@ -19,7 +19,7 @@ if($_SESSION["Welcome"] = true){
 $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Login failed: " . $conn->connect_error);
-    header("Location : C:\Abyss Web Server\htdocs\Music-Site\pages");
+    header("Location : http://localhost/Music-Site/pages/index.php");
     
 } 
 echo "Login successfully <br>";

@@ -71,9 +71,6 @@ $sql = "GRANT UPDATE, INSERT, DELETE, SELECT ON Music_Site.* TO '".$_POST["UName
 			 echo "Error ALTERing table Poste: <br>" . $conn->error;
 			}
 
-
-
-
 if(!empty($_POST["UName"])){
 $sql = "INSERT INTO Music_Site.Bruger(brugerNavn) 
 VALUES (' ".$_POST["Uname"]." ')";
@@ -89,6 +86,5 @@ $_SESSION["curentBruger"] = "UName";
 $conn->close();
 
 //header("location:../Music-Site/index.php");
-
 ?>
    
